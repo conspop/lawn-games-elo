@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 
 import SignupPage from './pages/SignupPage'
 import LoginPage from './pages/LoginPage'
+import AddGame from './pages/AddGame'
 
 import userService from './utils/userService'
 
@@ -35,6 +36,9 @@ class App extends Component {
               history={history}
             />
           } />
+        <Route exact paht='/add'>
+          <AddGame />
+        </Route>
       </Switch>
     )
   }

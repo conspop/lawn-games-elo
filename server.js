@@ -11,6 +11,7 @@ const app = express()
 require('./config/database');
 
 var usersRouter = require('./routes/api/users');
+var gamesRouter = require('./routes/api/games');
 
 app.use(logger('dev'))
 app.use(express.json())
@@ -19,6 +20,9 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 //unprotected routes
 app.use('/api/users', usersRouter);
+
+//protected routes
+app.use('/api/games', gamesRouter);
 
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'))
